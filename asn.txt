@@ -1,0 +1,60 @@
+MyMoudle DEFINITIONS ::=
+BEGIN
+Year ::= INTEGER(2019),
+Weekday ::= INTEGER(1<..5),
+one INTEGER ::= 1,
+two OCTET STRING ::= "2",
+fuyi INTEGER ::= ErrorCode:"disk-full",
+typerror INTEGER ::= "1",
+IString ::= IA5String(FROM("0".."9"|"*"|"#"))
+TString ::= OCTET STRING(SIZE(Age))
+Age ::= INTEGER(18|19|20),
+Month ::= SEQUENCE OF IA5String(SIZE(5))
+Weekend ::= INTEGER(6|7|1|9),
+Name ::= OCTET STRING,
+Names ::= SET OF Name(SIZE(5))
+Tired ::= {Job},
+Enterprise ::=Job,
+Job ::= BIT STRING,
+Salary ::= REAL,
+Holiday ::= NULL,
+Sex ::= BOOLEAN,
+Sex ::= INTEGER,
+Year ::= SEQUENCE OF INTEGER,
+Date ::= utcTime,
+Order ::= printableString,
+ErrorCode ::= INTEGER
+{disk-full(-1),no-dist(1)
+}
+DiskError ::= ErrorCode(DiskFull|no-dist)
+DiskFull ::= ErrorCode(disk-full)
+More ::= SEQUENCE{
+    aaa Area
+}
+Rectangle ::= SEQUENCE 
+   {height  Height OPTIONAL,area   Area,
+    COMPONENTS OF Area,
+    weekend SEQUENCE
+            {
+            saturday Date,
+            sunday Date
+            },
+    test INTEGER{
+        sb(1),xswl(2)
+    }
+    author  INTEGER DEFAULT 0,
+    title OCTET STRING,
+    ...
+}
+Area ::= SEQUENCE{
+    length [1]INTEGER,
+    width [1]INTEGER,
+    hhh Height
+}
+Height ::= INTEGER,
+
+Test ::= CHOICE{
+    year  INTEGER,
+    month  BIT STRING
+}
+END
